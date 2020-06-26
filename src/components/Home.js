@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Home = () => {
 
-  const [poke, setPokemon] = useState([]);
+  const [poke, setPokemon] = useState({ posts: [] });
   const [pokemon, setPokemonData] = useState({});
 
   useEffect(() => {
@@ -19,22 +19,23 @@ const Home = () => {
     axios
       .get('https://pokeapi.co/api/v2/pokemon/' + pokeId())
       .then(response => {
-        setPokemonData(response.data)
-      })
-  }
+        console.log({ posts: response.data });
+        setPokemon([response.data]);
+      });
+  };
 
-  return (
-    <div className="main">
-      <div className="pokemon">
-        <figure className="pokemon-container">
-          <a href="/pokemon"> <img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
-            <figcaption>
-              <span className="pokemon-detail">Name: {pokemon.name}</span>
-            </figcaption></a>
-        </figure>
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className="main">
+  //     <div className="pokemon">
+  //       <figure className="pokemon-container">
+  //         <a href="/pokemon"> <img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
+  //           <figcaption>
+  //             <span className="pokemon-detail">Name: {pokemon.name}</span>
+  //           </figcaption></a>
+  //       </figure>
+  //     </div>
+  //   </div>
+  // );
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -45,74 +46,22 @@ const Home = () => {
   //   fetchData();
   // }, []);
 
-  // return (
-  //   <div className="main">
-  //     {data.posts && data.posts.map(({ id, name }) => {
-  //       return (
-  //         <div key={id} >
-  //           <div className="pokemon">
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //           </div>
-  //           <div className="pokemon">
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //             <figure className="pokemon-container">
-  //               <a href="/pokemon"> <img src="http://unsplash.it/600" alt=" pokemon" />
-  //                 <figcaption>
-  //                   <span className="pokemon-detail">Name: {name}</span>
-  //                 </figcaption></a>
-  //             </figure>
-  //           </div>
-  //         </div>
-  //       );
-  //     })}
-  //   </div>
-  // );
+  return (
+    <div className="main">
+      {poke.posts.map(({ id, name }) => {
+        return (
+          <div className="pokemon">
+            <figure className="pokemon-container" ke>
+              <a href="/pokemon"> <img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
+                <figcaption>
+                  <span className="pokemon-detail">Name: {name}</span>
+                </figcaption></a>
+            </figure>
+          </div>
+        );
+      })}
+    </div >
+  );
 }
 
 export default Home;
