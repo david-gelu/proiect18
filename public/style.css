@@ -155,13 +155,11 @@ img{
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: space-between;
-  height: 200vh;
 }
 .pokemon{
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 .pokemon-container{
@@ -170,9 +168,9 @@ img{
   margin: 20px;
   padding: .3rem;
   box-shadow: inset 0px 0px 10px #222;
-  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .pokemon-detail{
@@ -184,6 +182,8 @@ img{
   font-family: 'Courier New', Courier, monospace;
   letter-spacing: 5px;
   box-shadow: inset 0px 0px 10px #222;
+  padding: .1rem ;
+  font-size: 1rem;
 }
 .pokemon-container img{
 	position: relative;
@@ -214,13 +214,11 @@ img{
 	opacity: .7;
 	transition: all .5s;
 }
+
 .pokemon-container:hover a::after{
-	content: '';
-	position: absolute;
+  position: absolute;
 	top: 0;
 	bottom: 0;
- }
-.pokemon-container:hover a::after{
 	content: 'Details';
   font-size: 2rem;
   color: #fff;
