@@ -12,10 +12,16 @@ const Nav = styled.div`
 `
 
 const A = styled.a`
-  width: 4rem;
+  width: 3.9rem;
+  transform:scale(1);
   margin-top: -2px;
   margin-left: -.5rem;
-  padding:0;
+  transition: ease-in-out .3s;
+  &:hover{
+    padding:.2rem;
+    transform:scale(1.1);
+    transform: rotate(180deg);
+  }
 `
 const Ul = styled.ul`
 width: 60%;
@@ -23,7 +29,7 @@ width: 60%;
 
 const Li = styled.li`
   float:right;
-  margin-top: 2px;
+  margin-top: 4px;
   margin-left: 1rem;
   background: lightgrey;
   padding: .5rem 1rem;
@@ -36,8 +42,6 @@ const Li = styled.li`
     background: #222;
   }
 `
-
-
 const Header = () => {
 
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled, { css } from 'styled-components';
 
 const Home = () => {
 
@@ -46,21 +47,21 @@ const Home = () => {
   //   fetchData();
   // }, []);
 
-  return (null
-    // <div className="main">
-    //   {poke.posts.map(({ id, name }) => {
-    //     return (
-    //       <div className="pokemon">
-    //         <figure className="pokemon-container" ke>
-    //           <a href="/pokemon"> <img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
-    //             <figcaption>
-    //               <span className="pokemon-detail">Name: {name}</span>
-    //             </figcaption></a>
-    //         </figure>
-    //       </div>
-    //     );
-    //   })}
-    // </div >
+  return (
+    < div className="main" >
+      {poke.posts.map(({ id, name }) => {
+        return (
+          <div className="pokemon">
+            <figure className="pokemon-container" ke>
+              <a href="/pokemon"><img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
+                <figcaption>
+                  <span className="pokemon-detail">Name: {name}</span>
+                </figcaption></a>
+            </figure>
+          </div>
+        );
+      })}
+    </div >
   );
 }
 
