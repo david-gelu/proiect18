@@ -49,24 +49,23 @@ img{
 }
 
 /* header */
-.header{
+/* .header{
   max-width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   background: grey;
   max-height: 50px;
-}
-.logo{
+} */
+/* .logo{
   width: 60px;
   margin-top: 2px;
   margin-left: -.5rem;
-}
-.nav-list{
-  
+} */
+/* .nav-list{
   width: 60%;
-}
-.nav-link{
+} */
+/* .nav-link{
   float:right;
   margin-top: 2px;
   margin-left: 1rem;
@@ -75,11 +74,12 @@ img{
   border-radius: .5rem;
   color: #222;
   transition: ease-in-out .3s;
-}
-.nav-link:hover{
+} */
+
+/* .nav-link:hover{
   color: #fff;
   background: #222;
-}
+} */
 
 .main{
   max-width: 70%;

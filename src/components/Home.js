@@ -46,21 +46,21 @@ const Home = () => {
   //   fetchData();
   // }, []);
 
-  return (
-    <div className="main">
-      {poke.posts.map(({ id, name }) => {
-        return (
-          <div className="pokemon">
-            <figure className="pokemon-container" ke>
-              <a href="/pokemon"> <img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
-                <figcaption>
-                  <span className="pokemon-detail">Name: {name}</span>
-                </figcaption></a>
-            </figure>
-          </div>
-        );
-      })}
-    </div >
+  return (null
+    // <div className="main">
+    //   {poke.posts.map(({ id, name }) => {
+    //     return (
+    //       <div className="pokemon">
+    //         <figure className="pokemon-container" ke>
+    //           <a href="/pokemon"> <img src={`http://pokeapi.co/media/sprites/pokemon/${pokeId()}.png`} alt=" pokemon" />
+    //             <figcaption>
+    //               <span className="pokemon-detail">Name: {name}</span>
+    //             </figcaption></a>
+    //         </figure>
+    //       </div>
+    //     );
+    //   })}
+    // </div >
   );
 }
 
