@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Nav = styled.div`
-  max-width: 70%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -11,18 +11,7 @@ const Nav = styled.div`
   max-height: 50px;
 `
 
-const A = styled.a`
-  width: 3.9rem;
-  transform:scale(1);
-  margin-top: -2px;
-  margin-left: -.5rem;
-  transition: ease-in-out .3s;
-  &:hover{
-    padding:.2rem;
-    transform:scale(1.1);
-    transform: rotate(180deg);
-  }
-`
+
 const Ul = styled.ul`
 width: 60%;
 `
@@ -44,14 +33,11 @@ const Li = styled.li`
 `
 const Header = () => {
 
-
   return (
     <Nav className="header">
-      <A>
-        <Link to="/">
-          <img src="./img/logo.png" className="logo" alt="logo" />
-        </Link>
-      </A>
+      <Link to="/">
+        <img src="./img/logo.png" className="logo" alt="logo" />
+      </Link>
       <Ul className="nav-list">
         <Link to="/pokemon" className="nav-link">
           <Li>Pokemon</Li>

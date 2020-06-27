@@ -1,11 +1,10 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 const Main = styled.div`
   max-width: 70%;
   margin: 1rem auto 0;
-  background-image: url('img/bg.png');
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -64,7 +63,7 @@ const Special = styled.div`
 const Pokemon = () => {
   return (
     <Main className="main">
-      <Img src="http://placehold.it/400" class="" alt="pokemon-image" />
+      <Img src="http://placehold.it/400" alt="pokemon-image" />
       <Container className="container">
         <ContainerType className="container-type">
           <Type className="type">type <span className="type-color1"></span></Type>

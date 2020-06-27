@@ -17,9 +17,14 @@ a:visited{
 	text-decoration: none;
 	color: inherit;
 }
-html{
+body{
+  min-width: 100% !important;
 	font-size: 18px;
   text-transform: capitalize;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url('img/bg.png');
 }
 
 @media(max-width: 1024px){
@@ -57,11 +62,7 @@ img{
   background: grey;
   max-height: 50px;
 } */
-/* .logo{
-  width: 60px;
-  margin-top: 2px;
-  margin-left: -.5rem;
-} */
+
 /* .nav-list{
   width: 60%;
 } */
@@ -81,6 +82,18 @@ img{
   background: #222;
 } */
 
+.logo{
+  max-width: 3.9rem;
+  transform:scale(1);
+  margin-top: -2px;
+  margin-left: -.5rem;
+  transition: ease-in-out .3s;
+}
+.logo:hover{
+    padding:.2rem;
+    transform:scale(1.1);
+    transform: rotate(180deg);
+  }
 
 
 
@@ -151,10 +164,15 @@ img{
 .main{
   max-width: 70%;
   margin: 1rem auto 0;
-  background-image: url('img/bg.png');
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  height: 200vh;
+}
+.main h1{
+  color: #fff;
+  margin: 5rem auto;
+  text-align: center;
+  letter-spacing: .2rem;
+  font-family:'Courier New', Courier, monospace;
+  filter: drop-shadow(0px 0px 5px #B91827);
 }
 .pokemon{
   width: 100%;
@@ -171,6 +189,7 @@ img{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background:rgba(161, 161, 161, .5);
 }
 
 .pokemon-detail{
@@ -222,4 +241,42 @@ img{
 	content: 'Details';
   font-size: 2rem;
   color: #fff;
+}
+
+/* media querys */
+
+
+/* @media(max-width: 1024px){
+	
+} */
+@media(max-width: 767px){
+  .header{
+    width: 98% !important;
+    display: block !important;
+  }
+	.main{
+		min-width: 98% !important;
+  }
+  div> .container {
+    flex-direction: column !important;
+    /* margin-top: 1rem; */
+  }
+  .container-type,
+  .container-special{
+    width: 100% !important;
+    margin: .5rem 0;
+  }
+  .nav-list{
+    margin-top: -47px;
+    width: 100% !important;
+  }
+
+  .pokemon{
+    flex-direction: column;
+    
+  }
+  .pokemon-container{
+    width: 100%;
+    margin-left: 0;
+  }
 }
