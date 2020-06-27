@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Home from './Home';
 
 
 const Main = styled.div`
   max-width: 70%;
-  margin: 1rem auto 0;
+  margin: 0 auto ;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -15,6 +16,7 @@ const Main = styled.div`
 const Img = styled.img`
   width: 50%;
   margin: 20px auto;
+  border-radius:40px;
 `
 
 const Container = styled.div`
@@ -22,11 +24,11 @@ const Container = styled.div`
   justify-content:space-between;
   flex-direction:row;
   width:100%;
-  background:rgba(161, 161, 161, .3);
+  background: #efb57b;
 `
 const ContainerType = styled.div`
   position:relative;
-  box-shadow:0px 0px 5px #222;
+  box-shadow:-1px 5px 5px #222;
   width:50%;
   display:flex;
   align-items:flex-start;
@@ -44,7 +46,7 @@ const Type = styled.div`
 `
 const ContainerSpecial = styled.div`
   position:relative;
-  box-shadow:0px 0px 5px #222;
+  box-shadow:1px 5px 5px #222;
   width:50%;
   display: flex;
   align-items: flex-start;
@@ -63,6 +65,7 @@ const Special = styled.div`
 const Pokemon = () => {
   return (
     <Main className="main">
+      <h1>pokemoane</h1>
       <Img src="http://placehold.it/400" alt="pokemon-image" />
       <Container className="container">
         <ContainerType className="container-type">
