@@ -10,6 +10,7 @@ const Main = styled.div`
   background-attachment: fixed;
   background-repeat: no-repeat;
   display: flex;
+  background: #f5d1ad;
   justify-content: start; 
   flex-direction:column;  
 `

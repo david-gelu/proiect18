@@ -27,7 +27,7 @@ const Home = () => {
   useEffect(() => {
     const imgPokemon = () => {
       axios
-        .get(`https://pokeapi.co/api/v2/pokemon-form` + pokeId())
+        .get(`https://pokeapi.co/api/v2/pokemon-form + ${pokeId()}`)
         .then(result => {
           console.log(result.data.results);
           setPokemonImg(result.data.results);
@@ -40,21 +40,27 @@ const Home = () => {
 
 
   return (
-    < div className="main" >
+
+    <div className="main">
       <h1>pokemoane</h1>
-      {pokemon.map(({ name }) => {
-        return (
-          <div className="pokemon">
-            <figure className="pokemon-container" key={name}>
-              <a href="/pokemon"><img src="http://pokeapi.co/media/sprites/pokemon/" alt=" pokemon" />
-                <figcaption>
-                  <span className="pokemon-detail">Name: {name}</span>
-                </figcaption></a>
-            </figure>
-          </div>
-        );
-      })}
-    </div >
+      <div className="pokemon">
+        {pokemon.map(({ name }) => {
+          return (
+            <div className="pokemon-wrap">
+              <figure className="pokemon-container" key={name}>
+                <a href="/pokemon"><img src="http://pokeapi.co/media/sprites/pokemon/" alt=" pokemon" />
+                  <figcaption>
+                    <div className="pokemon-detail">Name: <span className="pokemon-name">{name}</span>
+
+                    </div>
+
+                  </figcaption></a>
+              </figure>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
