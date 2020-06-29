@@ -14,6 +14,8 @@ const Nav = styled.div`
 
 const Ul = styled.ul`
 width: 60%;
+display:flex;
+justify-content:flex-end;
 `
 
 const Li = styled.li`
@@ -39,11 +41,11 @@ const Header = () => {
         <img src="./img/logo.png" className="logo" alt="logo" />
       </Link>
       <Ul className="nav-list">
-        <Link to="/pokemon" className="nav-link">
-          <Li>Pokemon</Li>
-        </Link>
         <Link to="/" className="nav-link">
           <Li>Home</Li>
+        </Link>
+        <Link to="/pokemon" className="nav-link">
+          <Li>Pokemon</Li>
         </Link>
       </Ul>
     </Nav >
