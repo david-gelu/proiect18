@@ -8,15 +8,15 @@ import Header from './navbar/Header';
 
 const App = () => {
   return (
-    <div>
+    <>
       <BrowserRouter>
         <Header />
-        <div>
+        <>
           <Route path="/" exact component={Home} />
           <Route path="/pokemon" component={Pokemon} />
-        </div>
+        </>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 

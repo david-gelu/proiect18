@@ -2,15 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 const Nav = styled.div`
   width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  background: grey;
-  max-height: 50px;
+  background: #E7DDDB;
 `
-
 
 const Ul = styled.ul`
 width: 60%;
@@ -33,6 +32,7 @@ const Li = styled.li`
     background: #222;
   }
 `
+
 const Header = () => {
 
   return (

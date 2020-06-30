@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 const PokeImg = () => {
 
-
-  const TOTAL_POKEMON = 21;
+  const TOTAL_POKEMON = 50;
 
   const useRandomPokemonImage = () => {
     const [image, setImage] = useState(null);
 
     useEffect(() => {
       const fetchPokemon = async () => {
-        const randomPokemonIndex = Math.ceil(Math.random() * TOTAL_POKEMON);
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonIndex}`);
-        const data = await response.json();
-        const pokemonImage = data.sprites.front_default;
+        const randomPokemonIndex = Math.ceil(Math.random(TOTAL_POKEMON) * TOTAL_POKEMON);
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomPokemonIndex}`);
+        const pokemonImage = response.data.sprites.front_default;
         setImage(pokemonImage);
       };
       fetchPokemon();
@@ -26,9 +24,9 @@ const PokeImg = () => {
   const imageUrl = useRandomPokemonImage();
 
   return (
-    <div >
-      <img src={imageUrl} alt="" />
-    </div>
+    <>
+      <img className="image-pkm" src={imageUrl} alt="pokemon" />
+    </>
   );
 
 
