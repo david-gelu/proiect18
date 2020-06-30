@@ -6,7 +6,6 @@ import PokeImg from './PokemonImg';
 const Home = () => {
 
   const [pokemon, setPokemonData] = useState([]);
-  const [pokemonImg, setPokemonImg] = useState([]);
 
   useEffect(() => {
     const makePokemon = () => {
