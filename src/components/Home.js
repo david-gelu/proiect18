@@ -81,7 +81,6 @@ const Home = () => {
                   <PokeImg />
                   <figcaption>
                     <Paragraph className="pokemon-detail">Name:
-                     <Span className="pokemon-name">{name}</Span>
                       <Span className="pokemon-name">{name}</Span>
                     </Paragraph>
                   </figcaption>
