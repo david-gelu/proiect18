@@ -1,50 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
+import { Nav, Ul, Li, Image } from './Navbar.style';
 
-const Nav = styled.div`
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  background: #E7DDDB;
-`
-
-const Ul = styled.ul`
-width: 60%;
-display:flex;
-justify-content:flex-end;
-`
-
-const Li = styled.li`
-  float:right;
-  margin-top: 4px;
-  margin-left: 1rem;
-  background: lightgrey;
-  padding: .5rem 1rem;
-  border-radius: .5rem;
-  color: #222;
-  transition: ease-in-out .3s;
-
-  &:hover{
-    color: #fff;
-    background: #222;
-  }
-`
 
 const Header = () => {
 
   return (
-    <Nav className="header">
+    <Nav>
       <Link to="/">
-        <img src="./img/logo.png" className="logo" alt="logo" />
+        <Image src="./img/logo.png" alt="logo" />
       </Link>
-      <Ul className="nav-list">
-        <Link to="/" className="nav-link">
+      <Ul>
+        <Link to="/">
           <Li>Home</Li>
         </Link>
-        <Link to="/pokemon" className="nav-link">
+        <Link to="/pokemon">
           <Li>Pokemon</Li>
         </Link>
       </Ul>
