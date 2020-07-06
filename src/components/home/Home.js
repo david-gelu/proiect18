@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const makePokemon = () => {
 
-      axios
+      const result = axios
         .get('https://pokeapi.co/api/v2/pokemon/')
         .then(result => {
           setPokemonData(result.data.results);
@@ -27,10 +27,10 @@ const Home = () => {
     <Main>
       <Title>pokemons</Title>
       <PokemonDiv>
-        {pokemon.map(({ name, id, front_default, url }) => {
+        {pokemon.map(({ name, id, front_default, url, abilities }) => {
           return (
             <PokemonWrap>
-              <Figure key={url}>
+              <Figure key={name}>
                 <Alink href="/pokemon">
                   <PokeImg />
                   <figcaption>

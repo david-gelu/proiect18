@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Main = styled.div`
 max-width: 70%;
 margin: 0 auto ;
-background:#F7F6F1;
+background:rgba(247, 246, 241, .8);
 padding: 5rem 0;
 display: flex;
 flex-direction: column;
@@ -13,7 +13,7 @@ flex-direction: column;
 `
 export const Title = styled.h1`
 display: block ;
-color: #219E40;
+color: var(--color2);
 padding: 0 0 5rem;
 font-size: 5rem;
 text-align: center;
@@ -44,7 +44,7 @@ width: 100%;
 margin: auto;
 margin-top: .5rem;
 margin-bottom: .5rem;
-text-shadow: 0px 1px 3px #222;
+text-shadow: 0px 1px 3px var(--color3);
 &::after{
   content: '';
 	position: absolute;
@@ -57,7 +57,7 @@ text-shadow: 0px 1px 3px #222;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #D59203;
+	background-color: var(--color1);
 	opacity: .7;
 	transition: all .5s;
 }
@@ -66,8 +66,8 @@ export const Figure = styled.figure`
 margin: 0 auto;
 position: relative;
 padding: .3rem;
-background:#F6F5F0;
-box-shadow: 0px 0px 10px #D59203;
+background:rgba(247, 246, 241,.7);
+box-shadow: 0px 0px 10px var(--color1);
 &:hover a::after{
   position: absolute;
 	top: 0;
@@ -93,11 +93,11 @@ align-items: center;
 font-weight: 600;
 font-family: 'Courier New', Courier, monospace;
 letter-spacing: 5px;
-background:#D59203;
+background: var(--color1);
 padding: .1rem ;
 font-size: 1rem;
 `
 export const Span = styled.span`
-// color: #222;
+// color: var(--color3);
 `
 

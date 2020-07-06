@@ -54,4 +54,8 @@ img{
   max-width: 100%;
 }
 
-
+:root{
+	--color1: #D59203;/*yellow*/
+	--color2: #219E40;/*green*/
+	--color3: #222;/*darkgrey*/
+}
