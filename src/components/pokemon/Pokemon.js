@@ -6,33 +6,6 @@ import { Main, Title } from '../home/Home.style';
 
 
 const Pokemon = () => {
-  // const pokemons: number = 20;
-
-  // const fetchData = () => {
-  //   for (let i = 1; i <= pokemons; i++) {
-  //     getPokemon(i);
-  //   }
-  // };
-
-  // const getPokemon = async (id) => {
-  //   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  //   const pokemon = await data.json();
-  //   const pokemonType = pokemon.types
-  //     .map((poke) => poke.type.name)
-  //     .join(", ");
-
-  //   const transformedPokemon = {
-  //     id: pokemon.id,
-  //     name: pokemon.name,
-  //     image: `${pokemon.sprites.front_default}`,
-  //     type: pokemonType
-  //   };
-
-  //   Pokemon(transformedPokemon);
-  // };
-
-
-  // fetchData();
 
   return (
     <Main>

@@ -5,7 +5,6 @@ import Home from './home/Home';
 import Pokemon from './pokemon/Pokemon';
 import Header from './navbar/Header';
 
-
 const App = () => {
   return (
     <>

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 import PokeImg from './PokemonImg';
-import { Main, Title, PokemonDiv, PokemonWrap, Alink, Figure, Paragraph, Span } from './Home.style';
+import { Main, Title, PokemonDiv, PokemonWrap, Alink, Figure, Paragraph, Span, Image } from './Home.style';
 
 
 
@@ -12,13 +12,9 @@ const Home = () => {
   const [pokemon, setPokemonData] = useState([]);
 
   useEffect(() => {
-    const makePokemon = () => {
-
-      const result = axios
-        .get('https://pokeapi.co/api/v2/pokemon/')
-        .then(result => {
-          setPokemonData(result.data.results);
-        });
+    const makePokemon = async () => {
+      const result = await axios('https://pokeapi.co/api/v2/pokemon/');
+      setPokemonData(result.data.results);
     };
     makePokemon();
   }, []);
@@ -27,7 +23,7 @@ const Home = () => {
     <Main>
       <Title>pokemons</Title>
       <PokemonDiv>
-        {pokemon.map(({ name, id, front_default, url, abilities }) => {
+        {pokemon.map(({ name, id, url }) => {
           return (
             <PokemonWrap>
               <Figure key={name}>

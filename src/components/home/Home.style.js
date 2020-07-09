@@ -62,42 +62,58 @@ text-shadow: 0px 1px 3px var(--color3);
 	transition: all .5s;
 }
 `
+export const Image = styled.img`
+width: 15vw;
+flex: 1 1 100% ;
+&@media(max-width: 900px){
+  width: 40vw;
+  flex: 1 1 100%;
+}
+@media(max-width: 767px){
+  width: 40vw;
+    // margin: 0 auto;
+    flex: 1 1 100% ;
+    padding: 0;
+    margin-left:50%;
+    transform:translate(-50%);
+}
+`
 export const Figure = styled.figure`
 margin: 0 auto;
 position: relative;
 padding: .3rem;
-background:rgba(247, 246, 241,.7);
-box-shadow: 0px 0px 10px var(--color1);
-&:hover a::after{
-  position: absolute;
+background: rgba(247, 246, 241, .7);
+box - shadow: 0px 0px 10px var(--color1);
+&: hover a:: after{
+	position: absolute;
 	top: 0;
 	bottom: 0;
 	content: 'Details';
-  font-size: 4rem;
-  color: #fff;
+	font - size: 4rem;
+	color: #fff;
 }
-&img{
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  padding: .5rem;
-  border-radius: .5rem .5rem 0 0;
+& img{
+	position: relative;
+	width: 100 %;
+	margin: 0 auto;
+	padding: .5rem;
+	border - radius: .5rem .5rem 0 0;
 }
 `
 export const Paragraph = styled.p`
-text-align: center;
+text - align: center;
 display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-font-weight: 600;
-font-family: 'Courier New', Courier, monospace;
-letter-spacing: 5px;
+flex - direction: column;
+justify - content: center;
+align - items: center;
+font - weight: 600;
+font - family: 'Courier New', Courier, monospace;
+letter - spacing: 5px;
 background: var(--color1);
-padding: .1rem ;
-font-size: 1rem;
+padding: .1rem;
+font - size: 1rem;
 `
 export const Span = styled.span`
-// color: var(--color3);
-`
+	// color: var(--color3);
+	`
 
