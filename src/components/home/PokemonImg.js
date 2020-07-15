@@ -27,13 +27,7 @@ const PokeImg = () => {
     const fetchPokemon = async () => {
 
       const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
-      // https://pokeapi.co/api/v2/pokemon/ ar trebui sa aiba o cifra de la 1 la 20 de exemplu https://pokeapi.co/api/v2/pokemon/1/ https://pokeapi.co/api/v2/pokemon/2/. Am inccercat cu un for() dar adauga https://pokeapi.co/api/v2/pokemon/1, https://pokeapi.co/api/v2/pokemon/1,2 ...https://pokeapi.co/api/v2/pokemon/1,2,3,4,5,..19,20
-      // este REST api si nu am mai lucrat,doar cu json.
-      // ce incerc sa fac este sa pun imagine pe acesta pagina si apoi pe pokemon.js sa pun detalii gen atack,hp etc.
-      // functia de mai jos comentata toata functioneaza doar ca este random si poza nu se potriveste cu numele.
-      // Multumesc
       setImage(result.data.sprites);
-      console.log(setImage(result.data.sprites));
     };
     fetchPokemon();
   }, []);
@@ -41,11 +35,11 @@ const PokeImg = () => {
   return (
     <>
       {
-        image.map(({ sprites }) => {
+        Image.length > 0 ? image.map(({ front_default }) => {
           return (
-            <Image className="image-pkm" src={sprites.front_default} alt="pokemon" />
+            <Image className="image-pkm" src={front_default} alt="pokemon" />
           )
-        })
+        }) : "<p>Loading</p>"
       };
     </>
   );

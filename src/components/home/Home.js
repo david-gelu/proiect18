@@ -23,22 +23,20 @@ const Home = () => {
     <Main>
       <Title>pokemons</Title>
       <PokemonDiv>
-        {pokemon.map(({ name, id, url }) => {
-          return (
-            <PokemonWrap>
-              <Figure key={name}>
-                <Alink href="/pokemon">
-                  <PokeImg />
-                  <figcaption>
-                    <Paragraph>Name:
-                      <Span>{name}</Span>
-                    </Paragraph>
-                  </figcaption>
-                </Alink>
-              </Figure>
-            </PokemonWrap>
-          );
-        })}
+        {pokemon.map(({ name, id, }) => (
+          <PokemonWrap>
+            <Figure key={name}>
+              <Alink href="/pokemon">
+                <PokeImg />
+                <figcaption>
+                  <Paragraph>Name:
+                    <Span>{name}</Span>
+                  </Paragraph>
+                </figcaption>
+              </Alink>
+            </Figure>
+          </PokemonWrap>
+        ))}
       </PokemonDiv>
     </Main>
   );
