@@ -3,7 +3,8 @@ import axios from 'axios';
 
 
 import PokeImg from './PokemonImg';
-import { Main, Title, PokemonDiv, PokemonWrap, Alink, Figure, Paragraph, Span, Image } from './Home.style';
+import { Main, Title, PokemonDiv, PokemonWrap, Alink, Figure, Paragraph, Span } from './Home.style';
+import { Img, Container, ContainerType, Type, ContainerSpecial, Special } from '../pokemon/Pokemon.style'
 
 
 
@@ -23,18 +24,48 @@ const Home = () => {
     <Main>
       <Title>pokemons</Title>
       <PokemonDiv>
-        {pokemon.map(({ name, id, }) => (
+        {pokemon.map(({ name, url }) => (
           <PokemonWrap>
-            <Figure key={name}>
-              <Alink href="/pokemon">
-                <PokeImg />
+            <Figure >
+              <Alink href="#">
+                <PokeImg url={url} key={name} />
                 <figcaption>
-                  <Paragraph>Name:
+                  <Paragraph>
+                    Name:
                     <Span>{name}</Span>
                   </Paragraph>
                 </figcaption>
               </Alink>
             </Figure>
+            <Container>
+              <ContainerType>
+                <Type>Name : <Span> text</Span> </Type>
+                <Type>Ability : <Span> text</Span> </Type>
+                <Type>Form : <Span> text</Span></Type>
+                <Type>Species : <Span> text</Span></Type>
+              </ContainerType>
+              <ContainerType>
+                <Special>Move 1: <Span> text</Span></Special>
+                <Special>Move 2: <Span> text</Span></Special>
+                <Special>Move 3: <Span> text</Span></Special>
+                <Special>Move 4: <Span> text</Span></Special>
+              </ContainerType>
+            </Container >
+            <Img >
+              <PokeImg url={url} />
+            </Img>
+            <Container>
+              <ContainerSpecial>
+                <Special>Hp: <Span> text</Span></Special>
+                <Special>Attack: <Span> text</Span></Special>
+                <Special>Defense: <Span> text</Span></Special>
+              </ContainerSpecial>
+              <ContainerSpecial>
+                <Special>Special-attack: <Span> text</Span></Special>
+                <Special>Special-defense: <Span> text</Span></Special>
+                <Special>Speed: <Span> text</Span></Special>
+              </ContainerSpecial>
+            </Container>
           </PokemonWrap>
         ))}
       </PokemonDiv>

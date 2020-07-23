@@ -5,7 +5,7 @@ import { Img, Container, ContainerType, Type, Span, ContainerSpecial, Special } 
 import { Main, Title } from '../home/Home.style';
 
 
-const Pokemon = () => {
+const Pokemon = ({ url }) => {
 
   return (
     <Main>
@@ -25,7 +25,7 @@ const Pokemon = () => {
         </ContainerType>
       </Container >
       <Img >
-        <PokeImg />
+        <PokeImg url={url} />
       </Img>
       <Container>
         <ContainerSpecial>
