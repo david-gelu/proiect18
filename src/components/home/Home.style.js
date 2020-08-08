@@ -33,10 +33,10 @@ justify-content: space-around;
 align-items: center;
 `
 export const PokemonWrap = styled.div`
-flex: 1 1 21.94%;
+flex: 1 0 21.94%;
 margin: 20px;
 @media(max-width: 767px){
-  flex: 1 1 44.4% ;
+  flex: 1 0 44.4% ;
 }
 `
 export const Alink = styled.a`
@@ -67,7 +67,7 @@ margin: 0 auto;
 position: relative;
 padding: .3rem;
 background: rgba(247, 246, 241, .7);
-box-shadow: 0px 0px 10px var(--color1);
+box-shadow: 0px 0px 10px var(--color2);
 &: hover a:: after{
 	position: absolute;
 	top: 0;
@@ -78,7 +78,7 @@ box-shadow: 0px 0px 10px var(--color1);
 }
 & img{
 	position: relative;
-	width: 100 %;
+	width: 100%;
 	margin: 0 auto;
 	padding: .5rem;
 	border-radius: .5rem .5rem 0 0;
@@ -98,6 +98,6 @@ padding: .1rem;
 font-size: 1rem;
 `
 export const Span = styled.span`
-	// color: var(--color3);
+	color: var(--color3);
 	`
 

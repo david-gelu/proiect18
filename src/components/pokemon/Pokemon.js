@@ -1,47 +1,57 @@
 import React from 'react';
 
 import PokeImg from '../home/PokemonImg';
-import { Img, Container, ContainerType, Type, Span, ContainerSpecial, Special } from './Pokemon.style'
-import { Main, Title } from '../home/Home.style';
+import PokemonName from './details/Name';
+import PokemonTypes from './details/Type';
+import PokemonAbility from './details/Ability';
+import PokemonFirstMove from './details/Move1';
+import PokemonSecondMove from './details/Move2';
+import PokemonThirdMove from './details/Move3';
+import PokemonHp from './details/Hp';
+import PokemonAttack from './details/Attack';
+import PokemonSpecialAttack from './details/SpecialAttack';
+import PokemonDefense from './details/Defense';
+import PokemonSpecialDefense from './details/SpecialDefense';
+import PokemonSpeed from './details/Speed';
 
+
+
+import { MainPokemon, Img, Container, ContainerType } from './Pokemon.style';
+// import { Main } from '../home/Home.style';
 
 const Pokemon = ({ url }) => {
 
   return (
-    <Main>
-      <Title>pokemons</Title>
+    <MainPokemon>
       <Container>
         <ContainerType>
-          <Type>Name : <Span> text</Span> </Type>
-          <Type>Ability : <Span> text</Span> </Type>
-          <Type>Form : <Span> text</Span></Type>
-          <Type>Species : <Span> text</Span></Type>
+          < PokemonName url={url} />
+          < PokemonTypes url={url} />
+          < PokemonAbility url={url} />
         </ContainerType>
         <ContainerType>
-          <Special>Move 1: <Span> text</Span></Special>
-          <Special>Move 2: <Span> text</Span></Special>
-          <Special>Move 3: <Span> text</Span></Special>
-          <Special>Move 4: <Span> text</Span></Special>
+          < PokemonFirstMove url={url} />
+          < PokemonSecondMove url={url} />
+          < PokemonThirdMove url={url} />
         </ContainerType>
       </Container >
-      <Img >
+      <Img>
         <PokeImg url={url} />
       </Img>
       <Container>
-        <ContainerSpecial>
-          <Special>Hp: <Span> text</Span></Special>
-          <Special>Attack: <Span> text</Span></Special>
-          <Special>Defense: <Span> text</Span></Special>
-        </ContainerSpecial>
-        <ContainerSpecial>
-          <Special>Special-attack: <Span> text</Span></Special>
-          <Special>Special-defense: <Span> text</Span></Special>
-          <Special>Speed: <Span> text</Span></Special>
-        </ContainerSpecial>
+        <ContainerType>
+          < PokemonHp url={url} />
+          < PokemonAttack url={url} />
+          < PokemonDefense url={url} />
+        </ContainerType>
+        <ContainerType>
+          < PokemonSpeed url={url} />
+          < PokemonSpecialAttack url={url} />
+          < PokemonSpecialDefense url={url} />
+        </ContainerType>
       </Container>
-    </Main >
+    </MainPokemon>
   );
-
 };
 
 export default Pokemon;
