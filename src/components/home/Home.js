@@ -3,7 +3,9 @@ import axios from 'axios';
 
 
 import PokeImg from './PokemonImg';
-import Pokemon from '../pokemon/Pokemon';
+import useModal from './useModal';
+import Modal from './Modal';
+// import Pokemon from '../pokemon/Pokemon';
 import { Main, Title, PokemonDiv, PokemonWrap, Alink, Figure, Paragraph, Span } from './Home.style';
 // import { Img, Container, ContainerType, Type, ContainerSpecial, Special } from '../pokemon/Pokemon.style';
 
@@ -15,20 +17,14 @@ const Home = () => {
 
   useEffect(() => {
     const makePokemon = async () => {
-      const result = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=32');
+      const result = await axios.get('https://pokeapi.co/api/v2/pokemon/');
       setPokemonData(result.data.results)
     };
     makePokemon();
   }, []);
 
-  // const targetPoke = document.querySelectorAll('Pokemon');
 
-  // const displaying = () => {
-  //   targetPoke!== style = { { display: "flex" }} ? style = {{ display: "none" }
-  // } : style = {{ display: "flex" }
-  //           }
-  // }
-
+  const { isShowing, toggle } = useModal();
 
   return (
     <Main>
@@ -38,7 +34,7 @@ const Home = () => {
         {pokemon.map(({ name, url, id }) => (
           <PokemonWrap>
             <Figure >
-              <Alink href="/Pokemon">
+              <Alink onClick={toggle}>
                 <PokeImg url={url} key={id} />
                 <figcaption>
                   <Paragraph>
@@ -48,7 +44,7 @@ const Home = () => {
                 </figcaption>
               </Alink>
             </Figure>
-            <Pokemon url={url} />
+            <Modal isShowing={isShowing} hide={toggle} />
           </PokemonWrap>
         ))}
       </PokemonDiv>

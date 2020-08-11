@@ -23,6 +23,7 @@ const Pokemon = ({ url }) => {
 
   return (
     <MainPokemon>
+
       <Container>
         <ContainerType>
           < PokemonName url={url} />

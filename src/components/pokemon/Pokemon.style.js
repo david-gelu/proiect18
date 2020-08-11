@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const MainPokemon = styled.div`
 max-width: 70%;
 position: fixed;
-top:0;
+top:3em;
 left:0;
 right:0;
 bottom:3em;
 margin: 0 auto ;
 background:rgba(247, 246, 241, .8);
 padding: 5rem 0;
-display: none;
+display: flex;
 flex-direction: column;
 z-index:999999999;
 @media(max-width: 767px){
