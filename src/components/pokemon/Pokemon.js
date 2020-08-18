@@ -1,57 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import PokeImg from '../home/PokemonImg';
-import PokemonName from './details/Name';
-import PokemonTypes from './details/Type';
-import PokemonAbility from './details/Ability';
-import PokemonFirstMove from './details/Move1';
-import PokemonSecondMove from './details/Move2';
-import PokemonThirdMove from './details/Move3';
-import PokemonHp from './details/Hp';
-import PokemonAttack from './details/Attack';
-import PokemonSpecialAttack from './details/SpecialAttack';
-import PokemonDefense from './details/Defense';
-import PokemonSpecialDefense from './details/SpecialDefense';
-import PokemonSpeed from './details/Speed';
-
-
-
-import { MainPokemon, Img, Container, ContainerType } from './Pokemon.style';
-// import { Main } from '../home/Home.style';
+import { MainPokemon, Img, Container, ContainerType, Type, Span } from './Pokemon.style';
+import Loading from '../loading/Loading';
 
 const Pokemon = ({ url }) => {
+  const [pokemon, setPokemon] = useState(null);
+
+  useEffect(() => {
+    const fetchDetailPokemon = async () => {
+      const result = await axios.get(url);
+      setPokemon(result.data);
+    };
+    fetchDetailPokemon();
+  }, [url]);
+
 
   return (
-    <MainPokemon>
-
-      <Container>
-        <ContainerType>
-          < PokemonName url={url} />
-          < PokemonTypes url={url} />
-          < PokemonAbility url={url} />
-        </ContainerType>
-        <ContainerType>
-          < PokemonFirstMove url={url} />
-          < PokemonSecondMove url={url} />
-          < PokemonThirdMove url={url} />
-        </ContainerType>
-      </Container >
-      <Img>
-        <PokeImg url={url} />
-      </Img>
-      <Container>
-        <ContainerType>
-          < PokemonHp url={url} />
-          < PokemonAttack url={url} />
-          < PokemonDefense url={url} />
-        </ContainerType>
-        <ContainerType>
-          < PokemonSpeed url={url} />
-          < PokemonSpecialAttack url={url} />
-          < PokemonSpecialDefense url={url} />
-        </ContainerType>
-      </Container>
-    </MainPokemon>
+    <>
+      {pokemon !== null ? (
+        <MainPokemon>
+          <Container>
+            <ContainerType>
+              <Type >Name : <Span>{pokemon.forms[0].name}</Span></Type>
+              <Type >Type : <Span>{pokemon.types[0].type.name}</Span></Type>
+              <Type >Ability : <Span>{pokemon.abilities[0].ability.name}</Span></Type>
+            </ContainerType>
+            <ContainerType>
+              <Type >Move 1 : <Span>{pokemon.moves[0].move.name}</Span></Type>
+              <Type >Move 2: <Span>{pokemon.moves[1].move.name}</Span></Type>
+              <Type >Move 3 : <Span>{pokemon.moves[3].move.name}</Span></Type>
+            </ContainerType>
+          </Container>
+          <Img>
+            <PokeImg url={url} />
+          </Img>
+          <Container>
+            <ContainerType>
+              <Type >Health : <Span>{pokemon.stats[0].base_stat}</Span></Type>
+              <Type >Attack : <Span>{pokemon.stats[1].base_stat}</Span></Type>
+              <Type >Defense : <Span>{pokemon.stats[2].base_stat}</Span></Type>
+            </ContainerType>
+            <ContainerType>
+              <Type >Speed : <Span>{pokemon.stats[5].base_stat}</Span></Type>
+              <Type >Special Attack : <Span>{pokemon.stats[3].base_stat}</Span></Type>
+              <Type >Special Defense : <Span>{pokemon.stats[4].base_stat}</Span></Type>
+            </ContainerType>
+          </Container>
+        </MainPokemon>
+      ) : (
+          <Loading />
+        )}
+    </>
   );
 };
 

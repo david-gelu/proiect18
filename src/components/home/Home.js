@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 import PokeImg from './PokemonImg';
-import useModal from './useModal';
-import Modal from './Modal';
-// import Pokemon from '../pokemon/Pokemon';
+import useModal from '../modal/useModal';
+import Modal from '../modal/Modal';
 import { Main, Title, PokemonDiv, PokemonWrap, Alink, Figure, Paragraph, Span } from './Home.style';
-// import { Img, Container, ContainerType, Type, ContainerSpecial, Special } from '../pokemon/Pokemon.style';
-
-
 
 const Home = () => {
 
@@ -23,16 +18,13 @@ const Home = () => {
     makePokemon();
   }, []);
 
-
-  const { isShowing, toggle } = useModal();
-
+  const { isShowing, toggle, onePokemon } = useModal(pokemon)
   return (
     <Main>
-
       <Title>pokemons</Title>
       <PokemonDiv>
         {pokemon.map(({ name, url, id }) => (
-          <PokemonWrap>
+          <PokemonWrap key={name}>
             <Figure >
               <Alink onClick={toggle}>
                 <PokeImg url={url} key={id} />
@@ -44,11 +36,11 @@ const Home = () => {
                 </figcaption>
               </Alink>
             </Figure>
-            <Modal isShowing={isShowing} hide={toggle} />
+            <Modal isShowing={isShowing} hide={toggle} onePokemon={onePokemon} url={url} name={name} />
           </PokemonWrap>
         ))}
       </PokemonDiv>
-    </Main>
+    </Main >
   );
 }
 

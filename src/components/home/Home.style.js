@@ -43,7 +43,7 @@ export const Alink = styled.a`
 width: 100%;
 margin: auto;
 margin-top: .5rem;
-margin-bottom: .5rem;
+margin-bottom: .5rem;font-weight: 900;
 text-shadow: 0px 1px 3px var(--color3);
 &::after{
   content: '';
@@ -90,14 +90,16 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-font-weight: 600;
+font-weight: 900;
 font-family: 'Courier New', Courier, monospace;
 letter-spacing: 5px;
-background: var(--color1);
+background: var(--color3);
+color: var(--color2);
 padding: .1rem;
 font-size: 1rem;
 `
 export const Span = styled.span`
-	color: var(--color3);
+	color: var(--color2);
+	font-weight:900;
 	`
 
