@@ -1,74 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import PokeImg from '../home/PokemonImg';
-import { Img, Container, ContainerType, Type, Span, ContainerSpecial, Special } from './Pokemon.style'
-import { Main, Title } from '../home/Home.style';
+import { MainPokemon, Img, Container, ContainerType, Type, Span } from './Pokemon.style';
+import Loading from '../loading/Loading';
 
+const Pokemon = ({ url }) => {
+  const [pokemon, setPokemon] = useState(null);
 
-const Pokemon = () => {
-  // const pokemons: number = 20;
+  useEffect(() => {
+    const fetchDetailPokemon = async () => {
+      const result = await axios.get(url);
+      setPokemon(result.data);
+    };
+    fetchDetailPokemon();
+  }, [url]);
 
-  // const fetchData = () => {
-  //   for (let i = 1; i <= pokemons; i++) {
-  //     getPokemon(i);
-  //   }
-  // };
-
-  // const getPokemon = async (id) => {
-  //   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  //   const pokemon = await data.json();
-  //   const pokemonType = pokemon.types
-  //     .map((poke) => poke.type.name)
-  //     .join(", ");
-
-  //   const transformedPokemon = {
-  //     id: pokemon.id,
-  //     name: pokemon.name,
-  //     image: `${pokemon.sprites.front_default}`,
-  //     type: pokemonType
-  //   };
-
-  //   Pokemon(transformedPokemon);
-  // };
-
-
-  // fetchData();
 
   return (
-    <Main>
-      <Title>pokemons</Title>
-      <Container>
-        <ContainerType>
-          <Type>Name : <Span> text</Span> </Type>
-          <Type>Ability : <Span> text</Span> </Type>
-          <Type>Form : <Span> text</Span></Type>
-          <Type>Species : <Span> text</Span></Type>
-        </ContainerType>
-        <ContainerType>
-          <Special>Move 1: <Span> text</Span></Special>
-          <Special>Move 2: <Span> text</Span></Special>
-          <Special>Move 3: <Span> text</Span></Special>
-          <Special>Move 4: <Span> text</Span></Special>
-        </ContainerType>
-      </Container >
-      <Img >
-        <PokeImg />
-      </Img>
-      <Container>
-        <ContainerSpecial>
-          <Special>Hp: <Span> text</Span></Special>
-          <Special>Attack: <Span> text</Span></Special>
-          <Special>Defense: <Span> text</Span></Special>
-        </ContainerSpecial>
-        <ContainerSpecial>
-          <Special>Special-attack: <Span> text</Span></Special>
-          <Special>Special-defense: <Span> text</Span></Special>
-          <Special>Speed: <Span> text</Span></Special>
-        </ContainerSpecial>
-      </Container>
-    </Main >
+    <>
+      {pokemon !== null ? (
+        <MainPokemon>
+          <Container>
+            <ContainerType>
+              <Type >Name : <Span>{pokemon.forms[0].name}</Span></Type>
+              <Type >Type : <Span>{pokemon.types[0].type.name}</Span></Type>
+              <Type >Ability : <Span>{pokemon.abilities[0].ability.name}</Span></Type>
+            </ContainerType>
+            <ContainerType>
+              <Type >Move 1 : <Span>{pokemon.moves[0].move.name}</Span></Type>
+              <Type >Move 2 : <Span>{pokemon.moves[1].move.name}</Span></Type>
+              <Type >Move 3 : <Span>{pokemon.moves[3].move.name}</Span></Type>
+            </ContainerType>
+          </Container>
+          <Img>
+            <PokeImg url={url} />
+          </Img>
+          <Container>
+            <ContainerType>
+              <Type >Health : <Span>{pokemon.stats[0].base_stat}</Span></Type>
+              <Type >Attack : <Span>{pokemon.stats[1].base_stat}</Span></Type>
+              <Type >Defense : <Span>{pokemon.stats[2].base_stat}</Span></Type>
+            </ContainerType>
+            <ContainerType>
+              <Type >Speed : <Span>{pokemon.stats[5].base_stat}</Span></Type>
+              <Type >Special Attack : <Span>{pokemon.stats[3].base_stat}</Span></Type>
+              <Type >Special Defense : <Span>{pokemon.stats[4].base_stat}</Span></Type>
+            </ContainerType>
+          </Container>
+        </MainPokemon>
+      ) : (
+          <Loading />
+        )}
+    </>
   );
-
 };
 
 export default Pokemon;

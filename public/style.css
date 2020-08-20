@@ -36,7 +36,8 @@ a:visited{
 
 input:focus, 
 textarea:focus,
-select:focus{
+select:focus,
+*:focus{
 	outline: none;
 	box-sizing: none;
 }
@@ -46,16 +47,32 @@ font-size: 18px;
 text-transform: capitalize;
 background-position: center;
 background-attachment: fixed;
-background-size: 110% 100%;
+background-size: 125% 100%;
 background-repeat: no-repeat;
-background-image: url('img/bg.jpg');
+background-image: url('img/bg.webp');
+}
+body::-webkit-scrollbar {
+  width: .7rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(360deg, rgba(20,20,20,1) 30%, rgba(33,158,64,1) 60%, rgba(255,255,255,1) 100%);  transform: rotateZ(90deg);
+  border: 1px  groove var(--color2)
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--color2);
+  border-radius: 100vw;
+  border: 1px  groove var(--color3)
 }
 img{
   max-width: 100%;
 }
 
 :root{
-	--color1: #D59203;/*yellow*/
+	--color1: #ff0000;/*red*/
 	--color2: #219E40;/*green*/
-	--color3: #222;/*darkgrey*/
+  --color3: #141414;/*darkgrey*/
+  --color4: #fff;/*white*/
 }
+
