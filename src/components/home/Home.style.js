@@ -3,26 +3,46 @@ import styled from 'styled-components';
 export const Main = styled.div`
 max-width: 70%;
 margin: 0 auto ;
-background:rgba(247, 246, 241, .8);
+background: var(--color3);
 padding: 5rem 0;
 display: flex;
 flex-direction: column;
+align-items: center;
 @media(max-width: 767px){
   min-width: 98%;
 }  
 `
 export const Title = styled.h1`
-display: block ;
+display:flex;
 color: var(--color2);
 padding: 0 0 5rem;
 font-size: 5rem;
 text-align: center;
+text-transform: none;
 letter-spacing: .3rem;
 font-family:'Courier New', Courier, monospace;
-text-shadow:0px 0px 3px #EB1D18;
+text-shadow:0px 0px 3px var(--color1);
 @media(max-width: 767px){
-  font-size: 3rem;
+  font-size: 2.6rem;
 } 
+`
+export const ImgLogo = styled.img`
+	// width: 1em;
+	height: 1em;
+	margin:0 -20px;
+	animation: imageAnimated 2s linear infinite alternate;
+	@keyframes imageAnimated{
+	0%{
+		transform: scale(.7) rotate(0deg);
+	}
+	50%{
+		transform: scale(1) rotate(20deg);
+	}
+	100%{
+		transform: scale(.7) rotate(0deg);
+	}
+}
+	
 `
 export const PokemonDiv = styled.div`
 display: flex;
@@ -45,6 +65,7 @@ margin: auto;
 margin-top: .5rem;
 margin-bottom: .5rem;font-weight: 900;
 text-shadow: 0px 1px 3px var(--color3);
+cursor:pointer;
 &::after{
   content: '';
 	position: absolute;
@@ -59,7 +80,7 @@ text-shadow: 0px 1px 3px var(--color3);
 	justify-content: center;
 	background-color: var(--color1);
 	opacity: .7;
-	transition: all .5s;
+	transition: all .25s;
 }
 `
 export const Figure = styled.figure`
@@ -67,7 +88,11 @@ margin: 0 auto;
 position: relative;
 padding: .3rem;
 background: rgba(247, 246, 241, .7);
-box-shadow: 0px 0px 10px var(--color2);
+box-shadow: 0px 0px 30px var(--color2);
+transition: all .25s;
+&:hover{
+	box-shadow: 0px 0px 30px var(--color1);
+}
 &: hover a:: after{
 	position: absolute;
 	top: 0;
@@ -90,16 +115,17 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-font-weight: 900;
+font-weight: 600;
 font-family: 'Courier New', Courier, monospace;
 letter-spacing: 5px;
 background: var(--color3);
-color: var(--color2);
+color: var(--color4);
+text-shadow:0px 0px 1px var(--color1);
 padding: .1rem;
 font-size: 1rem;
 `
 export const Span = styled.span`
-	color: var(--color2);
-	font-weight:900;
+	color: var(--color4);
+	font-weight:600;
 	`
 

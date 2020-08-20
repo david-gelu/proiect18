@@ -29,7 +29,7 @@ const Pokemon = ({ url }) => {
             </ContainerType>
             <ContainerType>
               <Type >Move 1 : <Span>{pokemon.moves[0].move.name}</Span></Type>
-              <Type >Move 2: <Span>{pokemon.moves[1].move.name}</Span></Type>
+              <Type >Move 2 : <Span>{pokemon.moves[1].move.name}</Span></Type>
               <Type >Move 3 : <Span>{pokemon.moves[3].move.name}</Span></Type>
             </ContainerType>
           </Container>

@@ -5,8 +5,8 @@ import { LoadBody, LoadImg, LoadTitle } from './Loading.style'
 const Loading = () => {
   return (
     <LoadBody>
-      <LoadImg src="../img/logo.png" alt="logo" />
-      <LoadTitle>Choosing pokemon</LoadTitle>
+      <LoadImg src="../img/logo.webp" alt="logo" />
+      <LoadTitle>Getting pokemon</LoadTitle>
     </LoadBody>
   )
 }
