@@ -1,4 +1,3 @@
-import React from 'react';
 
 import { LoadBody, LoadImg, LoadTitle } from './Loading.style'
 

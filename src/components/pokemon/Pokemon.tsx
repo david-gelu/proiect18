@@ -5,8 +5,16 @@ import PokeImg from '../home/PokemonImg';
 import { MainPokemon, Img, Container, ContainerType, Type, Span } from './Pokemon.style';
 import Loading from '../loading/Loading';
 
-const Pokemon = ({ url }) => {
-  const [pokemon, setPokemon] = useState(null);
+interface PokemonData {
+  forms: { name: string }[];
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+  moves: { move: { name: string } }[];
+  stats: { base_stat: number }[];
+}
+
+const Pokemon = ({ url }: { url: string }) => {
+  const [pokemon, setPokemon] = useState<PokemonData | null>(null);
 
   useEffect(() => {
     const fetchDetailPokemon = async () => {
@@ -50,8 +58,8 @@ const Pokemon = ({ url }) => {
           </Container>
         </MainPokemon>
       ) : (
-          <Loading />
-        )}
+        <Loading />
+      )}
     </>
   );
 };

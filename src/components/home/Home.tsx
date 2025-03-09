@@ -11,7 +11,7 @@ const Home = () => {
   const [pokemon, setPokemonData] = useState([]);
   const [modalName, setModalName] = useState("");
   const [modalUrl, setModalUrl] = useState("");
-  const { isShowing, toggle, onePokemon } = useModal(pokemon);
+  const { isShowing, toggle } = useModal(pokemon);
 
   useEffect(() => {
     const makePokemon = async () => {
@@ -50,9 +50,9 @@ const Home = () => {
       <Modal
         isShowing={isShowing}
         hide={toggle}
-        onePokemon={onePokemon}
         url={modalUrl}
         name={modalName}
+        setCurrentPokemon={(pokemon) => setPokemonData(pokemon)}
       />
     </Main>
   );
