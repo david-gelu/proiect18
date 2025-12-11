@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
-
 import Loading from '../loading/Loading';
 
-const Image = styled.img`
-  margin: 0 auto;
-  width: 40%;
-`;
-const PokeImg = ({ url }) => {
-  const [image, setImage] = useState(null);
+interface PokemonImgProps {
+  url: string;
+}
+
+const PokemonImg: React.FC<PokemonImgProps> = ({ url }) => {
+  const [image, setImage] = useState<string | null>(null);
+
   useEffect(() => {
-    try {
-      const fetchImagePokemon = async () => {
+    const fetchImagePokemon = async () => {
+      try {
         const result = await axios.get(url);
         setImage(result.data.sprites.front_default);
-      };
-      fetchImagePokemon();
-    } catch (err) {
-      console.log(err);
-    }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchImagePokemon();
   }, [url]);
+
   return (
-    <>
-      {image !== null ? <Image src={image} alt="pokemon" /> : <Loading />}
-    </>
+    <div className="w-40 h-40 mx-auto">
+      {image ? (
+        <img src={image} alt="pokemon" className="w-full h-full object-contain" />
+      ) : (
+        <Loading />
+      )}
+    </div>
   );
 };
 
-export default PokeImg;
+export default PokemonImg;

@@ -1,21 +1,19 @@
-// import { BrowserRouter, Route } from 'react-router-dom';
-
-// import Pokemon from './pokemon/Pokemon';
-// import Header from './navbar/Header';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
+import PokemonDetail from '@/components/pokemon/PokemonDetail';
+import { ThemeProvider } from './components/context/ThemeContext';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <>
-      <Home />
-      {/* <BrowserRouter>
-        <Header />
-        <>
-          <Route path="/" exact component={Home} />
-          <Route path="/pokemon" component={Pokemon} />
-        </>
-      </BrowserRouter> */}
-    </>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pokemon/:name" element={<PokemonDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
